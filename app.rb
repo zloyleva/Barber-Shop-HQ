@@ -8,8 +8,8 @@ set :database, "sqlite3:barbershop.db"
 
 class Client < ActiveRecord::Base
 	validates :name, presence: true, length: {minimum: 3}
-	#validates :phone, {presence: true}
-	#validates :datestamp, {presence: true}
+	validates :phone, {presence: true}
+	validates :datestamp, {presence: true}
 end
 
 class Barber < ActiveRecord::Base
@@ -20,7 +20,6 @@ before do
 end
 
 get '/' do
-	#@barbers = Barber.all
 	erb :index
 end
 
