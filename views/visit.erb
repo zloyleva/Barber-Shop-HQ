@@ -9,36 +9,25 @@
 
   <div class="form-group">
     <label>Ваше имя</label>
-    <input name="username" type="text" class="form-control" placeholder="Ваше имя" value="<%= @username %>">
+    <input name="client_param[name]" type="text" class="form-control" placeholder="Ваше имя" value="">
   </div>
 
   <div class="form-group">
     <label>Ваш телефон</label>
-    <input name="phone" type="text" class="form-control" placeholder="Ваш телефон" value="<%= @phone %>">
+    <input name="client_param[phone]" type="text" class="form-control" placeholder="Ваш телефон" value="">
   </div>
 
   <div class="form-group">
     <label>Когда вас ждать?</label>
-    <input name="datetime" id="datetimepicker" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datetime %>">
+    <input name="client_param[datestamp]" id="datetimepicker" type="text" class="form-control" placeholder="Введите дату и время" value="">
   </div>
 
 
-  <div class="form-group">
-    <label>Ваш парикмахер:</label>
-    <select name="barber" class="form-control">
-      
-        <% @barbers.each do |barber| %>
 
-          <option <%= @barber == barber.name ? 'selected' : '' %> ><%= barber.name %></option>
-
-        <% end %>
-
-    </select>
-  </div>
 
   <div class="form-group">
     <label>В какие цвета хотите себя окрасить: </label>
-    <select id="color" name="color">
+    <select id="color" name="client_param[color]">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
