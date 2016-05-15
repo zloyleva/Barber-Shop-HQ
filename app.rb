@@ -25,11 +25,12 @@ end
 
 get '/visit' do
 	@new_client = Client.new
+	@list_barbers = Barber.all
 	erb :visit
 end
 
 post '/visit' do
-
+	@list_barbers = Barber.all
 	@new_client = Client.new params[:client_param]
 	if @new_client.save
 			erb "Thanks! Our meneger will call you."
