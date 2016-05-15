@@ -35,7 +35,7 @@ post '/visit' do
 	if new_client.save
 			erb "Thanks! Our meneger will call you."
 	else
-		@error = 'Check input data'
+		@error = new_client.errors.full_messages.first#.join(', ')
 		erb :visit
 	end
 	
