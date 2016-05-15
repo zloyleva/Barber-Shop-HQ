@@ -32,7 +32,11 @@ end
 post '/visit' do
 
 	new_client = Client.new params[:client_param]
-	new_client.save
-
-	erb "Thanks! Our meneger will call you."
+	if new_client.save
+			erb "Thanks! Our meneger will call you."
+	else
+		@error = 'Check input data'
+		erb :visit
+	end
+	
 end
