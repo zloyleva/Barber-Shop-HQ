@@ -27,9 +27,9 @@
     <label>Ваш парикмахер:</label>
     <select name="barber" class="form-control">
       
-        <% @barbers.each do |row| %>
+        <% @barbers.each do |barber| %>
 
-          <option <%= @barber == row['barbername'] ? 'selected' : '' %> ><%= row['barbername'] %></option>
+          <option <%= @barber == barber.name ? 'selected' : '' %> ><%= barber.name %></option>
 
         <% end %>
 

@@ -17,7 +17,7 @@ before do
 end
 
 get '/' do
-	@barbers = Barber.all
+	#@barbers = Barber.all
 	erb :index
 end
 
@@ -34,6 +34,17 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
-	
-	erb :visit
+	hh = {:username => 'Enter your name', :phone => 'Enter your phone', :datetime => 'Enter date and time'}
+
+	@error = hh.select{|key, _| params[key] == ''}.values.join(', ')
+
+	if @error != ''
+		
+		return erb :visit
+	end
+
+	new_client = Client.new :name => "#{@username}", :phone => "#{@phone}", :datestamp => "#{@datetime}", :barber => "#{@barber}", :color => "#{@color}"
+	new_client.save
+
+	erb "Thanks #{@username}! Our meneger will call you."
 end
